@@ -19,23 +19,19 @@ Villano = Personaje(especieV, nombreV, alturaV)
 #4. Usamos los atributos del heroe y villano
 print('')
 print('¡HEROE!')
-print("El personaje se llama "+Heroe.nombre)
-print("Pertenece a la especie "+Heroe.especie)
-print("Tiene una altura de  "+str(Heroe.altura))
+print("El personaje se llama "+Heroe.getNombre())
+print("Pertenece a la especie "+Heroe.getEspecie())
+print("Tiene una altura de  "+str(Heroe.getAltura()))
 Heroe.Correr(True)
 Heroe.LanzarGranadas()
 Heroe.RecargarArma(recargaH)
 
-
 print('')
 print('¡VILLANO!')
-print("El personaje se llama "+Villano.nombre)
-print("Pertenece a la especie "+Villano.especie)
-print("Tiene una altura de  "+str(Villano.altura))
+print("El personaje se llama "+Villano.getNombre())
+print("Pertenece a la especie "+Villano.getEspecie())
+print("Tiene una altura de  "+str(Villano.getAltura()))
 Villano.Correr(True)
 Villano.LanzarGranadas()
 Villano.RecargarArma(recargaV)
-
-#5. Usar los métodos
-
 
