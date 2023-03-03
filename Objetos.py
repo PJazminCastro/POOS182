@@ -16,6 +16,7 @@ recargaV = int(input('Escriba cuantas balas desea que tenga el villano: '))
 Heroe = Personaje(especieH, nombreH, alturaH)
 Villano = Personaje(especieV, nombreV, alturaV)
 
+
 #4. Usamos los atributos del heroe y villano
 print('')
 print('¡HEROE!')
