@@ -21,19 +21,21 @@ seccionBoton.pack(expand = True, fill='both')
 
 solicitudLong = Label(seccionLongitud, text='Ingrese la longitud deseada (minimo 8): ')
 solicitudLong.place(x=50, y=50)
-VarLong = tk.StringVar()
-LongP = Entry(seccionLongitud, textvariable=VarLong)
-LongP.place(x=150, y=50)
+VarLong = str(tk.StringVar())
+LongP = Entry(seccionLongitud, textvariable="12")
+LongP.place(x=95, y=70)
 
 solicitudMayusc = Label(seccionMayusc, text='¿Desea que contenga mayusculas?: ')
 solicitudMayusc.place(x=25, y=50)
-MayuscP = Entry()
-MayuscP.place(x=150, y=50)
+VarMay = tk.StringVar()
+MayuscP = Entry(seccionMayusc, textvariable=VarMay)
+MayuscP.place(x=95, y=70)
 
 solicitudCaracE = Label(seccionCaractE, text='¿Desea que contenga mayusculas?: ')
 solicitudCaracE.place(x=25, y=50)
-CaracP = Entry()
-CaracP.place(x=150, y=50)
+VarCar = tk.StringVar()
+CaracP = Entry(seccionCaractE, textvariable=VarCar)
+CaracP.place(x=95, y=70)
 
 validacion = DatosP13(LongP, MayuscP, CaracP)
 
