@@ -12,5 +12,3 @@ class Datos:
             messagebox.showinfo('Bienvenido','El inicio de sesión ha sido exitoso.')
         else:
             messagebox.showerror('Error','Datos incorrectos, favor de verificar los datos.')
-
-    
