@@ -1,4 +1,4 @@
-from tkinter import Entry, ttk, Tk, Button, Frame, Label, messagebox;
+from tkinter import Entry, ttk, Tk, Button, Frame, Label, messagebox, simpledialog;
 from DatosP14 import *;
 import tkinter as tk;
 
@@ -27,16 +27,22 @@ VarEdad = tk.StringVar
 Edad = tk.Entry(seccion, textvariable=VarNoCuen)
 Edad.place(x=50, y=170)
 
-botonConsultaS = Button(seccion, text='Consulta de saldo')
+Saldo = 0
+Deposito = 0
+Retiro = 0
+
+consulta = DatosP14(NoCuenta, Titular, Edad, Saldo, Deposito, Retiro)
+
+botonConsultaS = Button(seccion, text='Consulta de saldo', command=consulta.ConsultaSaldo)
 botonConsultaS.place(x=50, y=200)
 
-botonDeposito = Button(seccion, text='Depositar a cuenta propia')
+botonDeposito = Button(seccion, text='Depositar a cuenta propia', command=consulta.DepositoCP)
 botonDeposito.place(x=50, y=235)
 
-botonRetiro = Button(seccion, text='Retiro a cuenta propia')
+botonRetiro = Button(seccion, text='Retiro a cuenta propia', command=consulta.Retiro)
 botonRetiro.place(x=50, y=270)
 
-botonDepositoOtro = Button(seccion, text='Depositar a cuenta externa')
+botonDepositoOtro = Button(seccion, text='Depositar a cuenta externa', command=consulta.DepositoCP)
 botonDepositoOtro.place(x=50, y=305)
 
 ventana.mainloop()
