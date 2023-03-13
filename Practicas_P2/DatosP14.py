@@ -28,7 +28,7 @@ class DatosP14:
                 messagebox.showerror('Error', 'Los datos ingresados son incorrectos')
         else: 
             if(self.__NoCuenta.get() == NoCuenta2):
-                if(self.__Titular.get() == Titular1):
+                if(self.__Titular.get() == Titular2):
                     self.__Saldo = Saldo2
                     messagebox.showinfo('Consulta saldo', 'Su saldo actual es: $'+str(self.__Saldo))
                 else:
@@ -54,7 +54,7 @@ class DatosP14:
                 messagebox.showerror('Error', 'Los datos ingresados son incorrectos')
         else: 
             if(self.__NoCuenta.get() == NoCuenta2):
-                if(self.__Titular.get() == Titular1):
+                if(self.__Titular.get() == Titular2):
                     self.__Deposito = simpledialog.askfloat(title="Cantidad", prompt="¿Cuánto desea depositar?:")
                     self.__Saldo = Saldo1 + self.__Deposito
                     self.__Saldo = Saldo2
@@ -82,7 +82,7 @@ class DatosP14:
                 messagebox.showerror('Error', 'Los datos ingresados son incorrectos')
         else: 
             if(self.__NoCuenta.get() == NoCuenta2):
-                if(self.__Titular.get() == Titular1):
+                if(self.__Titular.get() == Titular2):
                     self.__Retiro = simpledialog.askfloat(title="Cantidad", prompt="¿Cuánto desea retirar?:")
                     self.__Saldo = Saldo1 - self.__Retiro
                     self.__Saldo = Saldo2
