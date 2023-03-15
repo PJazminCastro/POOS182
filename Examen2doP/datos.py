@@ -7,26 +7,27 @@ class Datos:
         self.__ApellidoM = ApellidoM
         self.__AñoN = AñoN
         self.__Carrera = Carrera
-        self.__Longitud = Longitud
+        self.__Longitud = 3
 
     def Generar(self):
         digitos = string.digits
-        
-        pwd = ' '
         añoC = ('23')
         cadenaAño = self.__AñoN.get()
         cadenaNombre = self.__Nombre.get()
         cadenaApellidoP = self.__ApellidoP.get()
         cadenaApellidoM = self.__ApellidoM.get()
         cadenaCarrera = self.__Carrera.get()
+        cadenaNumeros = digitos
         digitosAño = cadenaAño[2:4]
         digitosNombre = cadenaNombre[0]
         digitosApellidoP = cadenaApellidoP[0]
         digitosApellidoM = cadenaApellidoM[0]
         digitosCarrera = cadenaCarrera[:3]
+        numeros = cadenaNumeros[:3]
         
-        Alfabeto = añoC + digitosAño + digitos
+        pwd = ''
+        
         for i in range(self.__Longitud):
-            pdw += ''.join(secrets.choice(Alfabeto))
-            
-        messagebox.showinfo('Matricula', añoC+digitosAño+digitosNombre+digitosApellidoP+digitosApellidoM+digitos+digitosCarrera)
+            pwd += ''.join(secrets.choice(digitos))
+
+        messagebox.showinfo('Matricula', añoC+digitosAño+digitosNombre+digitosApellidoP+digitosApellidoM+numeros+digitosCarrera)

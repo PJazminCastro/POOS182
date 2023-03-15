@@ -3,7 +3,7 @@ from datos import *;
 import tkinter as tk;
 
 ventana = Tk()
-ventana.title('Caja popular - Practica 14')
+ventana.title('Generador de matricula - EXAMEN')
 ventana.geometry('250x400')
 
 seccion = Frame(ventana, bg='#EBEBEB')
