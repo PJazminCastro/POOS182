@@ -74,15 +74,10 @@ class ControladorBD:
 
     def consultarUsuarios(self):
         conx = self.conexionBD()
-        try:
-            #4. Preparamos lo necesario
-            cursor=conx.cursor()
-            sqlselect= "select * from tbRegistrados"
-            #5. Ejecutamos y cerramos conexion
-            cursor.execute(sqlselect)
-            RSUsuarios = cursor.fetchall()
-            conx.close()
-            return RSUsuarios
-                
-        except sqlite3.OperationalError:
-            print("Error de consulta")
+        sqlite3 = 'select * from tbregistrados;'
+        cursor = conx.cursor()
+        cursor.execute(sqlite3)
+
+        registro = cursor.fetchall()
+        for r in registro:
+            print (r)

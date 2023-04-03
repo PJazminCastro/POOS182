@@ -25,8 +25,6 @@ def ejecutaSelectU():
 
 def ejecutaConsulta():
     rUsu = controlador.consultarUsuarios()
-    for usu in rUsu:
-        tablaCons.insert('', 'end', text=usu[0], values=(usu[1], usu[2], usu[3]))
 
 ventana = Tk()
 ventana.title('CRUD de usuarios.')
@@ -69,18 +67,7 @@ textBus.pack()
 btnBusqueda = Button(pestaña2, text='Buscar', command=ejecutaSelectU).pack()
 
 #Pestaña 3: consultar usuarios  
-subCons= Label(pestaña3,text= 'Registros:', fg='blue', font=('Modern',18)).pack()
-tablaCons = ttk.Treeview(pestaña3)
-tablaCons['columns'] = ('Nombre', 'Correo', 'Contraseña')
-tablaCons.column('#0', width=50, minwidth=50)
-tablaCons.column('Nombre', width=120, minwidth=120)
-tablaCons.column('Correo', width=150, minwidth=150)
-tablaCons.column('Contraseña', width=100, minwidth=100)
-tablaCons.heading('#0', text='ID', anchor=tk.CENTER)
-tablaCons.heading('Nombre', text='Nombre', anchor=tk.CENTER)
-tablaCons.heading('Correo', text='Correo', anchor=tk.CENTER)
-tablaCons.heading('Contraseña', text='Contraseña', anchor=tk.CENTER)
-tablaCons.pack() 
+
 
 consulta = Button(pestaña3, text="Consultar", command = ejecutaConsulta).pack()
 
