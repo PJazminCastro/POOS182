@@ -33,7 +33,6 @@ class ControladorBD:
             sqlInsert = 'insert into tbregistrados(nombre, correo, contra) values (?,?,?)' #variable propia, insertar en BD, ? = se dejan pendiente los parametros
             #5. Ejecutamos el Insert
             cursor.execute(sqlInsert, datos) #primero el metodo, despues los datos
-            
             conx.commit()
             conx.close() #cierra la conexión
             messagebox.showinfo('Exito', 'Usuario guardado')
@@ -63,7 +62,6 @@ class ControladorBD:
                 #4. Preparamos lo necesario (cursor y sqlslect)
                 cursor = conx.cursor()
                 sqlSelect = 'select * from tbregistrados where id = '+id
-
                 #5. Ejecutar y cerramos conexión
                 cursor.execute(sqlSelect)
                 RSusuario = cursor.fetchall() #toma lo que este en el cursor para pasarlo a una variable
@@ -74,10 +72,45 @@ class ControladorBD:
 
     def consultarUsuarios(self):
         conx = self.conexionBD()
-        sqlite3 = 'select * from tbregistrados;'
-        cursor = conx.cursor()
-        cursor.execute(sqlite3)
+        try:
+            cursor=conx.cursor()
+            sqlselect= "select * from tbRegistrados"
+            cursor.execute(sqlselect)
+            RSUsuarios = cursor.fetchall()
+            conx.close()
+            return RSUsuarios
+        except sqlite3.OperationalError:
+            print("Error de consulta")
 
-        registro = cursor.fetchall()
-        for r in registro:
-            print (r)
+    def actualizarDatos(self, id, nomb, corr, cont):
+        conx = self.conexionBD()
+        if(id == ''):
+            messagebox.showwarning('Cuidado', 'Escribe un ID')
+            conx.close
+        else:
+            conx = self.conexionBD()
+            if(nomb == '' or corr == '' or cont == ''):
+                messagebox.showwarning('Advertencia', 'Formulario incompleto.')
+                conx.close()
+            else:
+                cursor = conx.cursor() 
+                datos = (nomb, corr, cont) 
+                sqlUpdate = 'update tbregistrados set (nombre, correo, contra) = (?,?,?) where id = '+id 
+                cursor.execute(sqlUpdate, datos) 
+                conx.commit()
+                conx.close() 
+                messagebox.showinfo('Exito', 'Datos actualizados correctamente')
+
+    def eliminarUsuarios(self, id):
+        conx = self.conexionBD()
+        if(id == ''):
+            messagebox.showwarning('Cuidado', 'Escribe un ID')
+            conx.close
+        else:
+            conx = self.conexionBD()
+            cursor = conx.cursor() 
+            sqlDelete = 'delete from tbRegistrados where  id = "'+id+'"' 
+            cursor.execute(sqlDelete) 
+            conx.commit()
+            conx.close() 
+            messagebox.showinfo('Exito', 'Datos eliminados correctamente')
