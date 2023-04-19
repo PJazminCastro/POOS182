@@ -7,6 +7,8 @@ controlador = ConstructorBD()
 
 def ejecutaInsert():
     controlador.InsertarRegistro(varTrans.get(), varAduana.get())
+def ejecutaBorrarR():
+    controlador.eliminarRegistros(varID.get())
 
 ventana = Tk()
 ventana.title('Exportaciones')
@@ -27,6 +29,16 @@ txtAduana = Entry(pestaña1, textvariable=varAduana).pack()
 
 btnInsertar = Button(pestaña1, text='Insertar', command=ejecutaInsert).pack()
 
+pestaña2 = ttk.Frame(panel)
+titulo2 = Label(pestaña2, text='Eliminar registros', font=(15)).pack()
+varID = tk.StringVar()
+lblID = Label(pestaña2, text='ID de registro:').pack()
+txtID = Entry(pestaña2, textvariable=varID).pack()
+
+btnEliminar = Button(pestaña2, text='Eliminar', command=ejecutaBorrarR).pack()
+
 panel.add(pestaña1, text='Insertar registro')
+panel.add(pestaña2, text='Eliminar registro')
+
 
 ventana.mainloop()
